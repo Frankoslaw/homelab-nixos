@@ -1,0 +1,26 @@
+# Nix build and development outputs
+/result
+/result-*
+/.direnv/
+/.devenv/
+
+# Local VM images
+*.qcow2
+*.qcow
+*.raw
+
+# Local secret material and decrypted files
+*.agekey
+*.secret
+*.secret.*
+*.pem
+*.p12
+*.pfx
+/secrets/age/keys.txt
+
+# Editor and operating system files
+.*.sw?
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
