@@ -1,8 +1,31 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   # Safe, host-independent defaults. Hardware, networking, users, and services
   # belong in a host module so this can be shared across machines.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PubkeyAuthentication = true;
+      AllowUsers = [ "frankoslaw" ];
+    };
+  };
+
+  security.sudo.wheelNeedsPassword = false;
+
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    podman
+  ];
 
   networking.hostName = lib.mkDefault "nixos";
   time.timeZone = lib.mkDefault "Europe/Warsaw";

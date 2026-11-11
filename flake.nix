@@ -6,6 +6,11 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     systems.url = "github:nix-systems/default-linux";
 
+    home-manager = {
+      url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +30,7 @@
       systems = import inputs.systems;
 
       imports = [
+        inputs.home-manager.flakeModules.home-manager
         ./flake/nixos.nix
         ./flake/deploy.nix
       ];
