@@ -18,11 +18,11 @@ in
 
   users.users.prod = {
     isNormalUser = true;
+    uid = 1001;
     description = "Unprivileged production container account";
     # Keep the user's systemd services and rootless containers running after logout.
     linger = true;
-    subUidRanges = [ { startUid = 100000; count = 65536; } ];
-    subGidRanges = [ { startGid = 100000; count = 65536; } ];
+    autoSubUidGidRange = true;
   };
 
   home-manager = {

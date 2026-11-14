@@ -30,6 +30,18 @@ Podman is installed system-wide. Cockpit is a separate reusable module and is
 currently enabled only on the VM, with the Podman and Files plugins for
 browser-based management.
 
+The `prod` Home Manager profile declares the rootless Forgejo/PostgreSQL stack
+and Traefik with [quadlet-nix](https://github.com/SEIAROTg/quadlet-nix). The
+test database credentials are stored in the Nix store; replace them with
+sops-managed secrets before using this configuration beyond VM testing. The
+VM has a 40 GiB disk, 6 GiB of memory, and 2 CPU cores. QEMU forwards
+`127.0.0.1:8080` to Traefik and `127.0.0.1:2222` to Forgejo SSH. Add
+`127.0.0.1 forgejo.localhost traefik.localhost` to the host's `/etc/hosts`,
+then open `http://forgejo.localhost:8080/` or
+`http://traefik.localhost:8080/dashboard/`.
+The VM opens in a serial terminal so service status and logs can be copied from
+the console.
+
 ## Evaluate and run the VM
 
 ```sh

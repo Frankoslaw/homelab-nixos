@@ -12,6 +12,11 @@
       modules = [
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.default
+        inputs.quadlet-nix.nixosModules.quadlet
+        {
+          virtualisation.quadlet.enable = true;
+          home-manager.sharedModules = [ inputs.quadlet-nix.homeManagerModules.quadlet ];
+        }
         ../modules/nixos/base.nix
         ../modules/nixos/users.nix
         ../hosts/vm.nix

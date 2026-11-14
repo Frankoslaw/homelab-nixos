@@ -108,12 +108,29 @@
         "type": "github"
       }
     },
+    "quadlet-nix": {
+      "locked": {
+        "lastModified": 1793557434,
+        "narHash": "sha256-+MfKGbBtZ2Khe6qx1ePVxtDdh190sM25U64pBXRDXOM=",
+        "ref": "refs/heads/main",
+        "rev": "07e4bc60fa9a5872da69f86d1d57b474a086d6dd",
+        "revCount": 108,
+        "type": "git",
+        "url": "https://github.com/SEIAROTg/quadlet-nix.git"
+      },
+      "original": {
+        "owner": "SEIAROTg",
+        "repo": "quadlet-nix",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "deploy-rs": "deploy-rs",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "quadlet-nix": "quadlet-nix",
         "sops-nix": "sops-nix",
         "systems": "systems_2"
       }

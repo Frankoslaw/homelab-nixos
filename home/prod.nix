@@ -1,5 +1,10 @@
 { ... }:
 {
+  imports = [
+    ./services/forgejo.nix
+    ./services/traefik.nix
+  ];
+
   home = {
     username = "prod";
     homeDirectory = "/home/prod";
